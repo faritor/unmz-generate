@@ -108,7 +108,7 @@ public class CreateBean {
             String name = CommUtil.formatName(d.getColumnName());
             String type = d.getDataType();
             String comment = d.getColumnComment();
-            if(!"createTime".equals(name) && !"updateTime".equals(name) && !"createdBy".equals(name) && !"updatedBy".equals(name)){
+            if(!"createTime".equals(name) && !"updateTime".equals(name) && !"createdBy".equals(name) && !"updatedBy".equals(name)&& !"id".equals(name)){
                 String maxChar = name.substring(0, 1).toUpperCase();
                 str.append("\r\t").append("/**\n\t * " + comment + "\n\t */").append("\n\tprivate ").append(type + " ").append(name).append(";");
                 String method = maxChar + name.substring(1, name.length());
