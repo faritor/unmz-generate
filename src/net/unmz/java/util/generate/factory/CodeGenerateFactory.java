@@ -2,7 +2,7 @@ package net.unmz.java.util.generate.factory;
 
 import net.unmz.java.util.generate.CommonPageParser;
 import net.unmz.java.util.generate.CreateBean;
-import net.unmz.java.util.generate.defined.CodeResourceUtil;
+import net.unmz.java.util.generate.defined.DataModel;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.velocity.VelocityContext;
@@ -14,11 +14,11 @@ import java.util.Map;
 
 public class CodeGenerateFactory {
     private static final Log log = LogFactory.getLog(CodeGenerateFactory.class);
-    private static String url = CodeResourceUtil.URL;
-    private static String username = CodeResourceUtil.USERNAME;
-    private static String passWord = CodeResourceUtil.PASSWORD;
+    private static String url = DataModel.getUrl();
+    private static String username = DataModel.getUsername();
+    private static String passWord = DataModel.getPassword();
 
-    private static String buss_package = CodeResourceUtil.businessPackage;
+    private static String buss_package = DataModel.getBusinessPackage();
     private static String projectPath = getProjectPath();
 
     public static void codeGenerateList(List<String> tableList, String codeName, String controllerEntityPackage, String keyType, String author) {
@@ -39,9 +39,9 @@ public class CodeGenerateFactory {
         String className = createBean.getTablesNameToClassName(tableName);
         String lowerName = className.substring(0, 1).toLowerCase() + className.substring(1, className.length());
 
-        String srcPath = projectPath + CodeResourceUtil.source_root_package + "\\";
+        String srcPath = projectPath + DataModel.getSourceRootPackage() + "\\";
 
-        String pckPath = srcPath + CodeResourceUtil.businessPackageUrl + "\\";
+        String pckPath = srcPath + DataModel.getBusinessPackage() + "\\";
 
         String entityPath = (entityPackage == null || "".equals(entityPackage)) ? "" : entityPackage + "\\";
         String cPath = (controllerEntityPackage == null || "".equals(controllerEntityPackage)) ? "" : controllerEntityPackage + "\\";

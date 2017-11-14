@@ -1,5 +1,6 @@
 package net.unmz.java.util.generate;
 
+import net.unmz.java.util.generate.defined.DataModel;
 import net.unmz.java.util.generate.defined.FtlDef;
 import net.unmz.java.util.generate.factory.CodeGenerateFactory;
 import org.junit.Test;
@@ -40,6 +41,14 @@ public class GenerateCodeUtil {
         CodeGenerateFactory.codeGenerateList(tableList, codeName, entityPackage, keyType, author);
     }
 
+    static {
+        DataModel.setBusinessPackage("net.unmz.java.demo");
+        DataModel.setUrl("jdbc:mysql://127.0.0.1:3306/unmz?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull");
+        DataModel.setUsername("root");
+        DataModel.setPassword("123456");
+        DataModel.setDatabaseName("unmz");
+    }
+
     @Test
     public void testGenerate() {
         String tableName = "account_point_detail"; //表名
@@ -49,8 +58,8 @@ public class GenerateCodeUtil {
     @Test
     public void testGenerateList() {
         List<String> tableList = new ArrayList<>();
-        tableList.add("order_commission");
-        tableList.add("order_complement");
+        tableList.add("account");
+        tableList.add("account_point_detail");
         generateCodeList(tableList,"faritor@unmz.net");
     }
 }

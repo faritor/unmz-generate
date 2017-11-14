@@ -21,7 +21,7 @@ public class CommonPageParser {
 
     static {
         try {
-            String templateBasePath = CodeGenerateFactory.getProjectPath() + "resources/faritor/template";
+            String templateBasePath = CodeGenerateFactory.getProjectPath() + "resources/template";
             Properties properties = new Properties();
             properties.setProperty("resource.loader", "file");
             properties.setProperty("file.resource.loader.description", "Velocity File Resource Loader");

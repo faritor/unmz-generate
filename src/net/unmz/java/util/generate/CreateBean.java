@@ -1,7 +1,7 @@
 package net.unmz.java.util.generate;
 
-import net.unmz.java.util.generate.defined.CodeResourceUtil;
 import net.unmz.java.util.generate.defined.CommUtil;
+import net.unmz.java.util.generate.defined.DataModel;
 import net.unmz.java.util.generate.defined.TableConvert;
 import org.apache.commons.lang.StringUtils;
 
@@ -61,8 +61,10 @@ public class CreateBean {
     }
 
     public List<ColumnData> getColumnDatas(String tableName) throws SQLException {
+//        String SQLColumns = "select column_name ,data_type,column_comment,0,0,character_maximum_length,is_nullable nullable from information_schema.columns where table_name =  '"
+//                + tableName + "' " + "and table_schema =  '" + CodeResourceUtil.DATABASE_NAME + "'";
         String SQLColumns = "select column_name ,data_type,column_comment,0,0,character_maximum_length,is_nullable nullable from information_schema.columns where table_name =  '"
-                + tableName + "' " + "and table_schema =  '" + CodeResourceUtil.DATABASE_NAME + "'";
+                + tableName + "' " + "and table_schema =  '" + DataModel.getDatabaseName() + "'";
 
         Connection con = getConnection();
         PreparedStatement ps = con.prepareStatement(SQLColumns);
