@@ -4,13 +4,13 @@ import com.kp.base.entity.BaseEntity;
 import javax.persistence.Table;
 
 /**
-* Project Name:
-* Functional description：
+* Project Name:                              <br/>
+* Functional description：                   <br/>
 *
-* @author ${author}
-* @version 1.0
-* @date ${datetime}
-* @since JDK 1.8
+* @author ${author} <br/>
+* @version 1.0 <br/>
+* @date ${datetime} <br/>
+* @since JDK 1.8 <br/>
 */
 @Table(name = "${tableName}")
 public class ${className}Entity extends BaseEntity {

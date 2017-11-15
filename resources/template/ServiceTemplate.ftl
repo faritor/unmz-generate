@@ -1,13 +1,13 @@
 package ${bussPackage}.service#if($!entityPackage).${entityPackage}#end;
 
 /**
-* Project Name:
-* Functional description：
+* Project Name:                              <br/>
+* Functional description：                   <br/>
 *
-* @author ${author}
-* @version 1.0
-* @date ${datetime}
-* @since JDK 1.8
+* @author ${author} <br/>
+* @version 1.0 <br/>
+* @date ${datetime} <br/>
+* @since JDK 1.8 <br/>
 */
 public interface ${className}Service {
 

@@ -5,13 +5,13 @@ import org.apache.ibatis.annotations.Mapper;
 import ${bussPackage}.entity#if($!entityPackage).${entityPackage}#end.${className}Entity;
 
 /**
-* Project Name:
-* Functional description：
+* Project Name:                              <br/>
+* Functional description：                   <br/>
 *
-* @author ${author}
-* @version 1.0
-* @date ${datetime}
-* @since JDK 1.8
+* @author ${author} <br/>
+* @version 1.0 <br/>
+* @date ${datetime} <br/>
+* @since JDK 1.8 <br/>
 */
 @Mapper
 public interface ${className}Dao extends MyMapper<${className}Entity> {
