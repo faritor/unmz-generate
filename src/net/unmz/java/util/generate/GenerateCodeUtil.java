@@ -47,19 +47,22 @@ public class GenerateCodeUtil {
         DataModel.setUsername("root");
         DataModel.setPassword("123456");
         DataModel.setDatabaseName("unmz");
+        DataModel.setProjectName(" 对账管理 ");
+        DataModel.setFuncDesc(" 财务审核 ");
     }
 
     @Test
     public void testGenerate() {
-        String tableName = "account_point_detail"; //表名
+        String tableName = "order_car"; //表名
         generateCode(tableName, "faritor");
     }
 
     @Test
     public void testGenerateList() {
         List<String> tableList = new ArrayList<>();
-        tableList.add("account");
-        tableList.add("account_point_detail");
+        tableList.add("bill_company");
+        tableList.add("bill_platform");
+        tableList.add("bill_platform_detail");
         generateCodeList(tableList,"faritor@unmz.net");
     }
 }

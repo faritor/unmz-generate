@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
-* Project Name:                              <br/>
-* Functional description：                   <br/>
+* Project Name: ${projectName}  <br/>
+* Functional description：${funcDesc} <br/>
 *
 * @author ${author} <br/>
 * @version 1.0 <br/>

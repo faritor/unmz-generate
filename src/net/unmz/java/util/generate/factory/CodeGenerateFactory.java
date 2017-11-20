@@ -17,6 +17,8 @@ public class CodeGenerateFactory {
     private static String url = DataModel.getUrl();
     private static String username = DataModel.getUsername();
     private static String passWord = DataModel.getPassword();
+    private static String projectName = DataModel.getProjectName();
+    private static String funcDesc = DataModel.getFuncDesc();
 
     private static String buss_package = DataModel.getBusinessPackage();
     private static String projectPath = getProjectPath();
@@ -54,6 +56,8 @@ public class CodeGenerateFactory {
 
         VelocityContext context = new VelocityContext();
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        context.put("projectName", projectName);
+        context.put("funcDesc",funcDesc);
         context.put("datetime", sf.format(new Date()));
         context.put("author", author);
         context.put("className", className);

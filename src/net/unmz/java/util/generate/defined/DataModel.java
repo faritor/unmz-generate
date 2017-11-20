@@ -18,6 +18,8 @@ public class DataModel {
     private static String password;
     private static String databaseName;
     private static String sourceRootPackage = "out";
+    private static String projectName;
+    private static String funcDesc;
 
     public static String getBusinessPackage() {
         return businessPackage;
@@ -73,5 +75,21 @@ public class DataModel {
 
     public static void setSourceRootPackage(String sourceRootPackage) {
         DataModel.sourceRootPackage = sourceRootPackage;
+    }
+
+    public static String getProjectName() {
+        return projectName;
+    }
+
+    public static void setProjectName(String projectName) {
+        DataModel.projectName = projectName;
+    }
+
+    public static String getFuncDesc() {
+        return funcDesc;
+    }
+
+    public static void setFuncDesc(String funcDesc) {
+        DataModel.funcDesc = funcDesc;
     }
 }
