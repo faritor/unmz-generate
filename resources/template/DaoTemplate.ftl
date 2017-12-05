@@ -1,6 +1,6 @@
 package ${bussPackage}.dao#if($!entityPackage).${entityPackage}#end;
 
-import com.kp.base.utils.dao.MyMapper;
+import ${basePackage}.utils.dao.MyMapper;
 import org.apache.ibatis.annotations.Mapper;
 import ${bussPackage}.entity#if($!entityPackage).${entityPackage}#end.${className}Entity;
 

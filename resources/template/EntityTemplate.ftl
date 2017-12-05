@@ -1,6 +1,6 @@
 package ${bussPackage}.entity#if($!entityPackage).${entityPackage}#end;
 
-import com.kp.base.entity.BaseEntity;
+import ${basePackage}.entity.BaseEntity;
 import javax.persistence.Table;
 
 /**

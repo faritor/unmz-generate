@@ -1,6 +1,6 @@
 package ${bussPackage}.dto#if($!entityPackage).${entityPackage}#end;
 
-import com.kp.base.entity.BaseEntity;
+import ${basePackage}.entity.BaseEntity;
 
 /**
 * Project Name: ${projectName}  <br/>

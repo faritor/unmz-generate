@@ -11,6 +11,7 @@ package net.unmz.java.util.generate.defined;
  */
 public class DataModel {
 
+    private static String basePackage;
     private static String businessPackage;
     private static String diverName;
     private static String url;
@@ -91,5 +92,13 @@ public class DataModel {
 
     public static void setFuncDesc(String funcDesc) {
         DataModel.funcDesc = funcDesc;
+    }
+
+    public static String getBasePackage() {
+        return basePackage;
+    }
+
+    public static void setBasePackage(String basePackage) {
+        DataModel.basePackage = basePackage;
     }
 }
