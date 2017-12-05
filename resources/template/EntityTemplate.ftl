@@ -10,7 +10,7 @@ import javax.persistence.Table;
 * @author ${author} <br/>
 * @version 1.0 <br/>
 * @date ${datetime} <br/>
-* @since JDK 1.8 <br/>
+* @since JDK ${version} <br/>
 */
 @Table(name = "${tableName}")
 public class ${className}Entity extends BaseEntity {

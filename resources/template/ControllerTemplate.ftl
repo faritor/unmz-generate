@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 * @author ${author} <br/>
 * @version 1.0 <br/>
 * @date ${datetime} <br/>
-* @since JDK 1.8 <br/>
+* @since JDK ${version} <br/>
 */
 @RestController
 @RequestMapping

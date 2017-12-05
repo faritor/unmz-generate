@@ -12,7 +12,7 @@ import ${bussPackage}.service#if($!entityPackage).${entityPackage}#end.${classNa
 * @author ${author} <br/>
 * @version 1.0 <br/>
 * @date ${datetime} <br/>
-* @since JDK 1.8 <br/>
+* @since JDK ${version} <br/>
 */
 @Service
 public class ${className}ServiceImpl implements ${className}Service {

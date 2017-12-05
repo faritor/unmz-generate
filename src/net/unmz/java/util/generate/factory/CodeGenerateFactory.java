@@ -70,6 +70,7 @@ public class CodeGenerateFactory {
         context.put("entityPackage", entityPackage == "" ? null : entityPackage);
         context.put("controllerEntityPackage", controllerEntityPackage == "" ? null : controllerEntityPackage);
         context.put("keyType", keyType);
+        context.put("version", System.getProperty("java.version"));
         try {
             context.put("feilds", createBean.getBeanFeilds(tableName));
         } catch (Exception e) {
