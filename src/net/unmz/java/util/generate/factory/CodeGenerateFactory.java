@@ -53,6 +53,8 @@ public class CodeGenerateFactory {
         String servicePath = "service\\" + entityPath + className + "Service.java";
         String serviceImplPath = "service\\" + entityPath + "impl\\" + className + "ServiceImpl.java";
         String controllerPath = "controller\\" + cPath + className + "Controller.java";
+        String sqlPath = "sql\\" + cPath + className + "Build.java";
+        String dtoPath = "dto\\" + cPath + className + "Dto.java";
 
         VelocityContext context = new VelocityContext();
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -88,6 +90,8 @@ public class CodeGenerateFactory {
         CommonPageParser.WriterPage(context, "ServiceTemplate.ftl", pckPath, servicePath);
         CommonPageParser.WriterPage(context, "ServiceImplTemplate.ftl", pckPath, serviceImplPath);
         CommonPageParser.WriterPage(context, "ControllerTemplate.ftl", pckPath, controllerPath);
+        CommonPageParser.WriterPage(context, "BuildTemplate.ftl", pckPath, sqlPath);
+        CommonPageParser.WriterPage(context, "DtoTemplate.ftl", pckPath, dtoPath);
         log.info("----------------------------\u4EE3\u7801\u751F\u6210\u5B8C\u6BD5---------------------------");
     }
 
