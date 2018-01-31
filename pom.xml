@@ -26,6 +26,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <mavne.compiler.encoding>UTF-8</mavne.compiler.encoding>
         <java.version>1.8</java.version>
     </properties>
 
