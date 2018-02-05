@@ -21,18 +21,18 @@ public class TestDemo {
 
     static {
         DataModel.setBasePackage("net.unmz.java.base");
-        DataModel.setBusinessPackage("net.unmz.java.statistics.service");
-        DataModel.setUrl("jdbc:mysql://192.168.1.14:3306/gchbpm?useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true");
-        DataModel.setUsername("gch");
-        DataModel.setPassword("asd12345");
-        DataModel.setDatabaseName("gchbpm");
-        DataModel.setProjectName("  ");
-        DataModel.setFuncDesc("  ");
+        DataModel.setBusinessPackage("net.unmz.java.demo");
+        DataModel.setUrl("jdbc:mysql://127.0.0.1:3306/unmz?useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true");
+        DataModel.setUsername("root");
+        DataModel.setPassword("root");
+        DataModel.setDatabaseName("unmz");
+        DataModel.setProjectName(" 项目名称 ");
+        DataModel.setFuncDesc(" 功能描述 ");
     }
 
     @Test
     public void testGenerate() {
-        String tableName = "t_s_category"; //表名
+        String tableName = "category"; //表名
         GenerateCodeUtil.generateCode(tableName, "faritor@unmz.net");
     }
 
