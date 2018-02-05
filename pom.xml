@@ -5,7 +5,7 @@
 
     <groupId>net.unmz.java.util</groupId>
     <artifactId>unmz-generate</artifactId>
-    <version>2.0.1-SNAPSHOT</version>
+    <version>1.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>unmz-generate</name>
@@ -24,10 +24,13 @@
     </developers>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <mavne.compiler.encoding>UTF-8</mavne.compiler.encoding>
         <java.version>1.8</java.version>
+        <default.charset>UTF-8</default.charset>
+
+        <project.build.sourceEncoding>${default.charset}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${default.charset}</project.reporting.outputEncoding>
+        <mavne.compiler.encoding>${default.charset}</mavne.compiler.encoding>
+
     </properties>
 
     <dependencies>

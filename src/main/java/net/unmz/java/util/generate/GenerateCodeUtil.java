@@ -1,11 +1,8 @@
 package net.unmz.java.util.generate;
 
-import net.unmz.java.util.generate.defined.DataModel;
 import net.unmz.java.util.generate.defined.FtlDef;
 import net.unmz.java.util.generate.factory.CodeGenerateFactory;
-import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,28 +38,4 @@ public class GenerateCodeUtil {
         CodeGenerateFactory.codeGenerateList(tableList, codeName, entityPackage, keyType, author);
     }
 
-    static {
-        DataModel.setBasePackage("net.unmz.java.base");
-        DataModel.setBusinessPackage("net.unmz.java.statistics.service");
-        DataModel.setUrl("jdbc:mysql://127.0.0.1:3306/unmz?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull");
-        DataModel.setUsername("root");
-        DataModel.setPassword("123456");
-        DataModel.setDatabaseName("unmz");
-        DataModel.setProjectName(" 项目名称 ");
-        DataModel.setFuncDesc(" 功能描述 ");
-    }
-
-    @Test
-    public void testGenerate() {
-        String tableName = "statistics_city"; //表名
-        generateCode(tableName, "faritor@unmz.net");
-    }
-
-    @Test
-    public void testGenerateList() {
-        List<String> tableList = new ArrayList<>();
-        tableList.add("statistics_city");
-        tableList.add("statistics_city");
-        generateCodeList(tableList,"faritor@unmz.net");
-    }
 }
