@@ -110,15 +110,18 @@ public class CreateBean {
             String name = CommUtil.formatName(d.getColumnName());
             String type = d.getDataType();
             String comment = d.getColumnComment();
-            if(!"createTime".equals(name) && !"updateTime".equals(name) && !"createdBy".equals(name) && !"updatedBy".equals(name)&& !"id".equals(name)){
-                String maxChar = name.substring(0, 1).toUpperCase();
-                str.append("\r\t").append("/**\n\t * " + comment + "\n\t */").append("\n\tprivate ").append(type + " ").append(name).append(";");
-                String method = maxChar + name.substring(1, name.length());
-                getset.append("\n\t\r\t").append("public ").append(type + " ").append("get" + method + "() {\r\t");
-                getset.append("    return this.").append(name).append(";\r\t}");
-                getset.append("\n\t\r\t").append("public void ").append("set" + method + "(" + type + " " + name + ") {\r\t");
-                getset.append("    this." + name + "=").append(name).append(";\r\t}");
-            }
+            //if (!"createTime".equals(name) && !"updateTime".equals(name) && !"createdBy".equals(name) && !"updatedBy".equals(name) && !"id".equals(name)) {
+            String maxChar = name.substring(0, 1).toUpperCase();
+            str.append("\r\t").append("/**\n\t * " + comment + "\n\t */").append("\n\tprivate ").append(type + " ").append(name).append(";");
+            String method = maxChar + name.substring(1, name.length());
+            getset.append("\n\t\r\t");
+//            String nullable = ", nullable = false ";
+//            getset.append("@Column(name = \"" + d.getColumnName().toUpperCase() + "\"" + (d.getNullable().equalsIgnoreCase("N") ? nullable : "") + ", length = " + (StringUtils.isBlank(d.getCharMaxLength()) ? 20 : d.getCharMaxLength()) + ")");
+            getset.append("\r\t").append("public ").append(type + " ").append("get" + method + "() {\r\t");
+            getset.append("    return this.").append(name).append(";\r\t}");
+            getset.append("\n\t\r\t").append("public void ").append("set" + method + "(" + type + " " + name + ") {\r\t");
+            getset.append("    this." + name + "=").append(name).append(";\r\t}");
+            //}
         }
         argv = str.append("\n\t\n\t").toString();
         this.method = getset.toString();
@@ -195,10 +198,9 @@ public class CreateBean {
         else if (dataType.contains("double"))
             dataType = "Double";
         else if (dataType.contains("number")) {
-            if ((StringUtils.isNotBlank(scale)) && (Integer.parseInt(scale) > 0)){
+            if ((StringUtils.isNotBlank(scale)) && (Integer.parseInt(scale) > 0)) {
                 dataType = "BigDecimal";
-            }
-            else if ((StringUtils.isNotBlank(precision)) && (Integer.parseInt(precision) > 6))
+            } else if ((StringUtils.isNotBlank(precision)) && (Integer.parseInt(precision) > 6))
                 dataType = "Long";
             else
                 dataType = "Integer";
