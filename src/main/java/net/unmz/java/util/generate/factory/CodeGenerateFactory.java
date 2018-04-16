@@ -3,6 +3,7 @@ package net.unmz.java.util.generate.factory;
 import net.unmz.java.util.generate.CommonPageParser;
 import net.unmz.java.util.generate.CreateBean;
 import net.unmz.java.util.generate.defined.DataModel;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.velocity.VelocityContext;
@@ -69,8 +70,8 @@ public class CodeGenerateFactory {
         context.put("codeName", codeName);
         context.put("tableName", tableName);
         context.put("bussPackage", buss_package);
-        context.put("entityPackage", entityPackage == "" ? null : entityPackage);
-        context.put("controllerEntityPackage", controllerEntityPackage == "" ? null : controllerEntityPackage);
+        context.put("entityPackage", StringUtils.isBlank(entityPackage) ? null : entityPackage);
+        context.put("controllerEntityPackage", StringUtils.isBlank(controllerEntityPackage) ? null : controllerEntityPackage);
         context.put("keyType", keyType);
         context.put("version", System.getProperty("java.version"));
         try {

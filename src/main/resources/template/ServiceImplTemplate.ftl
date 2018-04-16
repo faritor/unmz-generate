@@ -6,13 +6,13 @@ import ${bussPackage}.service#if($!entityPackage).${entityPackage}#end.${classNa
 
 
 /**
-* Project Name: ${projectName}  <br/>
-* Functional description：${funcDesc} <br/>
+* Project Name: ${projectName}  
+* Functional description：${funcDesc} 
 *
-* @author ${author} <br/>
-* @version 1.0 <br/>
-* @date ${datetime} <br/>
-* @since JDK ${version} <br/>
+* @author ${author} 
+* @version 1.0 
+* @date ${datetime} 
+* @since JDK ${version} 
 */
 @Service
 public class ${className}ServiceImpl implements ${className}Service {
