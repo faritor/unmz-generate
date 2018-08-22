@@ -51,7 +51,7 @@ public class CodeGenerateFactory {
         String cPath = (controllerEntityPackage == null || "".equals(controllerEntityPackage)) ? "" : controllerEntityPackage + "\\";
 
         String beanPath = "entity\\" + entityPath + className + "Entity.java";
-        String daoPath = "dao\\" + entityPath + className + "Dao.java";
+        String daoPath = "mapper\\" + entityPath + className + "Mapper.java";
         String servicePath = "service\\" + entityPath + className + "Service.java";
         String serviceImplPath = "service\\" + entityPath + "impl\\" + className + "ServiceImpl.java";
         String controllerPath = "controller\\" + cPath + className + "Controller.java";
@@ -90,7 +90,7 @@ public class CodeGenerateFactory {
         }
 
         CommonPageParser.WriterPage(context, "EntityTemplate.ftl", pckPath, beanPath);
-        CommonPageParser.WriterPage(context, "DaoTemplate.ftl", pckPath, daoPath);
+        CommonPageParser.WriterPage(context, "MapperTemplate.ftl", pckPath, daoPath);
         CommonPageParser.WriterPage(context, "ServiceTemplate.ftl", pckPath, servicePath);
         CommonPageParser.WriterPage(context, "ServiceImplTemplate.ftl", pckPath, serviceImplPath);
         CommonPageParser.WriterPage(context, "ControllerTemplate.ftl", pckPath, controllerPath);

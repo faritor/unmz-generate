@@ -1,6 +1,6 @@
 package ${bussPackage}.dao#if($!entityPackage).${entityPackage}#end;
 
-import ${basePackage}.utils.dao.MyMapper;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import ${bussPackage}.entity#if($!entityPackage).${entityPackage}#end.${className}Entity;
 
@@ -14,7 +14,7 @@ import ${bussPackage}.entity#if($!entityPackage).${entityPackage}#end.${classNam
 * @since JDK ${version} 
 */
 @Mapper
-public interface ${className}Dao extends MyMapper<${className}Entity> {
+public interface ${className}Mapper extends BaseMapper<${className}Entity> {
 
 
 }

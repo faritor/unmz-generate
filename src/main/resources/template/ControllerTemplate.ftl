@@ -1,6 +1,7 @@
 package ${bussPackage}.controller#if($!controllerEntityPackage).${controllerEntityPackage}#end;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping
 public class ${className}Controller {
 
-    private final static Logger log= Logger.getLogger(${className}Controller.class);
+    private final static Logger log= LoggerFactory.getLogger(${className}ServiceImpl.class);
 
 
 }
