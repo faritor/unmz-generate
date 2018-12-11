@@ -1,7 +1,6 @@
 package ${bussPackage}.entity#if($!entityPackage).${entityPackage}#end;
 
-import ${basePackage}.entity.BaseEntity;
-import javax.persistence.Table;
+import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 
 
@@ -14,7 +13,7 @@ import java.io.Serializable;
 * @date ${datetime} 
 * @since JDK ${version} 
 */
-@Table(name = "${tableName}")
+@TableName("${tableName}")
 public class ${className}Entity implements Serializable {
 ${feilds}
 
