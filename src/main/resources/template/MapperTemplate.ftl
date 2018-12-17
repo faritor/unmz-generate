@@ -1,8 +1,8 @@
 package ${bussPackage}.dao#if($!entityPackage).${entityPackage}#end;
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import ${bussPackage}.entity#if($!entityPackage).${entityPackage}#end.${className}Entity;
+import org.springframework.stereotype.Component;
 
 /**
 * Project Name: ${projectName}  
@@ -13,7 +13,7 @@ import ${bussPackage}.entity#if($!entityPackage).${entityPackage}#end.${classNam
 * @date ${datetime} 
 * @since JDK ${version} 
 */
-@Mapper
+@Component
 public interface ${className}Mapper extends BaseMapper<${className}Entity> {
 
 
