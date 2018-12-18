@@ -113,8 +113,8 @@ public class CreateBean {
             //if (!"createTime".equals(name) && !"updateTime".equals(name) && !"createdBy".equals(name) && !"updatedBy".equals(name) && !"id".equals(name)) {
             String maxChar = name.substring(0, 1).toUpperCase();
             str.append("\r\t").append("/**\n\t * " + comment + "\n\t */").append("\n\tprivate ").append(type + " ").append(name).append(";");
-            String method = maxChar + name.substring(1, name.length());
-            getset.append("\n\t\r\t");
+//            String method = maxChar + name.substring(1, name.length());
+//            getset.append("\n\t\r\t");
 //            String nullable = ", nullable = false ";
 //            getset.append("@Column(name = \"" + d.getColumnName().toUpperCase() + "\"" + (d.getNullable().equalsIgnoreCase("N") ? nullable : "") + ", length = " + (StringUtils.isBlank(d.getCharMaxLength()) ? 20 : d.getCharMaxLength()) + ")");
 //            getset.append("\r\t").append("public ").append(type + " ").append("get" + method + "() {\r\t");
