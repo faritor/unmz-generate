@@ -1,8 +1,6 @@
 package ${bussPackage}.service#if($!entityPackage).${entityPackage}#end.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import ${bussPackage}.service#if($!entityPackage).${entityPackage}#end.${className}Service;
 
@@ -20,6 +18,5 @@ import ${bussPackage}.service#if($!entityPackage).${entityPackage}#end.${classNa
 @Service
 public class ${className}ServiceImpl implements ${className}Service {
 
-    private final static Logger log= LoggerFactory.getLogger(${className}ServiceImpl.class);
 
 }
