@@ -138,7 +138,7 @@ public class CreateBean {
         String[] split = name.split("_");
         if (split.length > 1) {
             StringBuffer sb = new StringBuffer();
-            for (int i = 0; i < split.length; i++) {//是否截取表名中的第一段单词
+            for (int i = 0; i < split.length; i++) {//是否截取表名中的第一段单词 从0开始不截取 从1开始截取
                 String tempName = split[i].substring(0, 1).toUpperCase() + split[i].substring(1, split[i].length());
                 sb.append(tempName);
             }
