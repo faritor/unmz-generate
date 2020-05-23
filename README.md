@@ -7,7 +7,7 @@
 
 1.找到resources目录下的template文件夹,该目录下是程序生成时使用的文件模板.
 
-2.可用/src/net/unmz/java/util/generate/GenerateCodeUtil.java文件中的测试方法体验
+2.可用TestDemo.java文件中的测试方法体验
 
 3.在使用之前请修改静态方法块中的配置信息
 

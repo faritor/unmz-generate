@@ -113,14 +113,14 @@ public class CreateBean {
             //if (!"createTime".equals(name) && !"updateTime".equals(name) && !"createdBy".equals(name) && !"updatedBy".equals(name) && !"id".equals(name)) {
             String maxChar = name.substring(0, 1).toUpperCase();
             str.append("\r\t").append("/**\n\t * " + comment + "\n\t */").append("\n\tprivate ").append(type + " ").append(name).append(";");
-            String method = maxChar + name.substring(1, name.length());
-            getset.append("\n\t\r\t");
+//            String method = maxChar + name.substring(1, name.length());
+//            getset.append("\n\t\r\t");
 //            String nullable = ", nullable = false ";
 //            getset.append("@Column(name = \"" + d.getColumnName().toUpperCase() + "\"" + (d.getNullable().equalsIgnoreCase("N") ? nullable : "") + ", length = " + (StringUtils.isBlank(d.getCharMaxLength()) ? 20 : d.getCharMaxLength()) + ")");
-            getset.append("\r\t").append("public ").append(type + " ").append("get" + method + "() {\r\t");
-            getset.append("    return this.").append(name).append(";\r\t}");
-            getset.append("\n\t\r\t").append("public void ").append("set" + method + "(" + type + " " + name + ") {\r\t");
-            getset.append("    this." + name + "=").append(name).append(";\r\t}");
+//            getset.append("\r\t").append("public ").append(type + " ").append("get" + method + "() {\r\t");
+//            getset.append("    return this.").append(name).append(";\r\t}");
+//            getset.append("\n\t\r\t").append("public void ").append("set" + method + "(" + type + " " + name + ") {\r\t");
+//            getset.append("    this." + name + "=").append(name).append(";\r\t}");
             //}
         }
         argv = str.append("\n\t\n\t").toString();
@@ -138,7 +138,7 @@ public class CreateBean {
         String[] split = name.split("_");
         if (split.length > 1) {
             StringBuffer sb = new StringBuffer();
-            for (int i = 0; i < split.length; i++) {//是否截取表名中的第一段单词
+            for (int i = 0; i < split.length; i++) {//是否截取表名中的第一段单词 从0开始不截取 从1开始截取
                 String tempName = split[i].substring(0, 1).toUpperCase() + split[i].substring(1, split[i].length());
                 sb.append(tempName);
             }

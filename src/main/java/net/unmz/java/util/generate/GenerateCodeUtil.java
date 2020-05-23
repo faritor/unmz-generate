@@ -23,7 +23,7 @@ public class GenerateCodeUtil {
     }
 
     public static void generateCode(String tableName, String codeName, String entityPackage, String author) {
-        String keyType = FtlDef.KEY_TYPE_02;//主键生成方式 01:UUID  02:自增
+        String keyType = FtlDef.KEY_TYPE_01;//主键生成方式 01:UUID  02:自增
         CodeGenerateFactory.codeGenerate(tableName, codeName, entityPackage, keyType, author);
     }
 
@@ -34,7 +34,7 @@ public class GenerateCodeUtil {
     }
 
     public static void generateCodeList(List<String> tableList, String codeName, String entityPackage, String author) {
-        String keyType = FtlDef.KEY_TYPE_02;//主键生成方式 01:UUID  02:自增
+        String keyType = FtlDef.KEY_TYPE_01;//主键生成方式 01:UUID  02:自增
         CodeGenerateFactory.codeGenerateList(tableList, codeName, entityPackage, keyType, author);
     }
 

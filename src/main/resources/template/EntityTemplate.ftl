@@ -1,20 +1,20 @@
 package ${bussPackage}.entity#if($!entityPackage).${entityPackage}#end;
 
-import ${basePackage}.entity.BaseEntity;
-import javax.persistence.Table;
+import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
-
+import lombok.Data;
 
 /**
-* Project Name: ${projectName}  <br/>
-* Functional description：${funcDesc} <br/>
+* Project Name: ${projectName}  
+* Functional description：${funcDesc} 
 *
-* @author ${author} <br/>
-* @version 1.0 <br/>
-* @date ${datetime} <br/>
-* @since JDK ${version} <br/>
+* @author ${author} 
+* @version 1.0 
+* @date ${datetime} 
+* @since JDK ${version} 
 */
-@Table(name = "${tableName}")
+@Data
+@TableName("${tableName}")
 public class ${className}Entity implements Serializable {
 ${feilds}
 

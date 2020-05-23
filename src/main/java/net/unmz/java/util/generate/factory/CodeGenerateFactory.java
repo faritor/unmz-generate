@@ -3,6 +3,7 @@ package net.unmz.java.util.generate.factory;
 import net.unmz.java.util.generate.CommonPageParser;
 import net.unmz.java.util.generate.CreateBean;
 import net.unmz.java.util.generate.defined.DataModel;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.velocity.VelocityContext;
@@ -50,7 +51,7 @@ public class CodeGenerateFactory {
         String cPath = (controllerEntityPackage == null || "".equals(controllerEntityPackage)) ? "" : controllerEntityPackage + "\\";
 
         String beanPath = "entity\\" + entityPath + className + "Entity.java";
-        String daoPath = "dao\\" + entityPath + className + "Dao.java";
+        String daoPath = "mapper\\" + entityPath + className + "Mapper.java";
         String servicePath = "service\\" + entityPath + className + "Service.java";
         String serviceImplPath = "service\\" + entityPath + "impl\\" + className + "ServiceImpl.java";
         String controllerPath = "controller\\" + cPath + className + "Controller.java";
@@ -69,8 +70,8 @@ public class CodeGenerateFactory {
         context.put("codeName", codeName);
         context.put("tableName", tableName);
         context.put("bussPackage", buss_package);
-        context.put("entityPackage", entityPackage == "" ? null : entityPackage);
-        context.put("controllerEntityPackage", controllerEntityPackage == "" ? null : controllerEntityPackage);
+        context.put("entityPackage", StringUtils.isBlank(entityPackage) ? null : entityPackage);
+        context.put("controllerEntityPackage", StringUtils.isBlank(controllerEntityPackage) ? null : controllerEntityPackage);
         context.put("keyType", keyType);
         context.put("version", System.getProperty("java.version"));
         try {
@@ -89,7 +90,7 @@ public class CodeGenerateFactory {
         }
 
         CommonPageParser.WriterPage(context, "EntityTemplate.ftl", pckPath, beanPath);
-        CommonPageParser.WriterPage(context, "DaoTemplate.ftl", pckPath, daoPath);
+        CommonPageParser.WriterPage(context, "MapperTemplate.ftl", pckPath, daoPath);
         CommonPageParser.WriterPage(context, "ServiceTemplate.ftl", pckPath, servicePath);
         CommonPageParser.WriterPage(context, "ServiceImplTemplate.ftl", pckPath, serviceImplPath);
         CommonPageParser.WriterPage(context, "ControllerTemplate.ftl", pckPath, controllerPath);
