@@ -199,19 +199,19 @@ public class CreateBean {
             dataType = "Double";
         else if (dataType.contains("number")) {
             if ((StringUtils.isNotBlank(scale)) && (Integer.parseInt(scale) > 0)) {
-                dataType = "BigDecimal";
+                dataType = "java.math.BigDecimal";
             } else if ((StringUtils.isNotBlank(precision)) && (Integer.parseInt(precision) > 6))
                 dataType = "Long";
             else
                 dataType = "Integer";
         } else if (dataType.contains("decimal"))
-            dataType = "BigDecimal";
+            dataType = "java.math.BigDecimal";
         else if (dataType.contains("date"))
-            dataType = "Date";
+            dataType = "java.util.Date";
         else if (dataType.contains("time"))
-            dataType = "Timestamp";
+            dataType = "java.sql.Timestamp";
         else if (dataType.contains("clob"))
-            dataType = "Clob";
+            dataType = "java.sql.Clob";
         else {
             dataType = "Object";
         }
