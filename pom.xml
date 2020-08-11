@@ -24,13 +24,14 @@
     </developers>
 
     <properties>
-        <java.version>1.7</java.version>
+        <java.version>1.8</java.version>
         <default.charset>UTF-8</default.charset>
 
         <project.build.sourceEncoding>${default.charset}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${default.charset}</project.reporting.outputEncoding>
         <mavne.compiler.encoding>${default.charset}</mavne.compiler.encoding>
-
+        <maven.compiler.source>${default.charset}</maven.compiler.source>
+        <maven.compiler.target>${default.charset}</maven.compiler.target>
     </properties>
 
     <dependencies>
