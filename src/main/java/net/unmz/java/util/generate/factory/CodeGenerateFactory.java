@@ -21,6 +21,7 @@ public class CodeGenerateFactory {
     private static String projectName = DataModel.getProjectName();
     private static String funcDesc = DataModel.getFuncDesc();
     private static String basePackage = DataModel.getBasePackage();
+    private static String category = DataModel.getCategory();
 
     private static String buss_package = DataModel.getBusinessPackage();
     private static String projectPath = getProjectPath();
@@ -62,6 +63,7 @@ public class CodeGenerateFactory {
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         context.put("projectName", projectName);
         context.put("basePackage", basePackage);
+        context.put("category", category);
         context.put("funcDesc", funcDesc);
         context.put("datetime", sf.format(new Date()));
         context.put("author", author);

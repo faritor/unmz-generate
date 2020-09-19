@@ -25,6 +25,7 @@ disconf
 .idea
 *.iml
 
+
 # maven ignore
 target
 
@@ -33,3 +34,5 @@ target
 *.tmp
 Thumbs.db
 *.DS_Store
+
+out

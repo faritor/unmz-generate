@@ -13,6 +13,7 @@ public class DataModel {
 
     private static String basePackage;
     private static String businessPackage;
+    private static String category;
     private static String diverName;
     private static String url;
     private static String username;
@@ -100,5 +101,13 @@ public class DataModel {
 
     public static void setBasePackage(String basePackage) {
         DataModel.basePackage = basePackage;
+    }
+
+    public static String getCategory() {
+        return category;
+    }
+
+    public static void setCategory(String category) {
+        DataModel.category = category;
     }
 }
