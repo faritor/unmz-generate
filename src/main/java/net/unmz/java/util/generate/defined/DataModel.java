@@ -22,6 +22,7 @@ public class DataModel {
     private static String sourceRootPackage = "out";
     private static String projectName;
     private static String funcDesc;
+    private static boolean ignoreHead = false;
 
     public static String getBusinessPackage() {
         return businessPackage;
@@ -109,5 +110,13 @@ public class DataModel {
 
     public static void setCategory(String category) {
         DataModel.category = category;
+    }
+
+    public static boolean isIgnoreHead() {
+        return ignoreHead;
+    }
+
+    public static void setIgnoreHead(boolean ignoreHead) {
+        DataModel.ignoreHead = ignoreHead;
     }
 }
