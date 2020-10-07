@@ -16,6 +16,8 @@ import lombok.Data;
 @Data
 @TableName("${tableName}")
 public class ${className}Entity implements Serializable {
+
+    private static final long serialVersionUID = ${randomLong}L;
 ${feilds}
 
 }

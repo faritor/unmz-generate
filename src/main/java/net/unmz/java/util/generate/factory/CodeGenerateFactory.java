@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class CodeGenerateFactory {
     private static final Log log = LogFactory.getLog(CodeGenerateFactory.class);
@@ -76,6 +77,7 @@ public class CodeGenerateFactory {
         context.put("controllerEntityPackage", StringUtils.isBlank(controllerEntityPackage) ? null : controllerEntityPackage);
         context.put("keyType", keyType);
         context.put("version", System.getProperty("java.version"));
+        context.put("randomLong", System.currentTimeMillis() + new Random(10).nextLong());
         try {
             context.put("feilds", createBean.getBeanFeilds(tableName));
         } catch (Exception e) {
