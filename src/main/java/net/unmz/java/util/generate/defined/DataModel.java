@@ -14,7 +14,6 @@ public class DataModel {
     private static String basePackage;
     private static String businessPackage;
     private static String category;
-    private static String diverName;
     private static String url;
     private static String username;
     private static String password;
@@ -30,14 +29,6 @@ public class DataModel {
 
     public static void setBusinessPackage(String businessPackage) {
         DataModel.businessPackage = businessPackage;
-    }
-
-    public static String getDiverName() {
-        return diverName;
-    }
-
-    public static void setDiverName(String diverName) {
-        DataModel.diverName = diverName;
     }
 
     public static String getUrl() {
