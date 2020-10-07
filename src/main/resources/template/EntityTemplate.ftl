@@ -5,10 +5,13 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
- * Project Name: ${projectName}
- * Functional description：${funcDesc}
+ * Project Name: #if($!projectName)${projectName}#end
+
+ * Functional description：#if($!funcDesc)${funcDesc}#end
+
  *
- * @author ${author}
+ * @author #if($!author)${author}#end
+
  * @version 1.0
  * @date ${datetime}
  * @since JDK ${version}

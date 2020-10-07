@@ -5,14 +5,17 @@ import ${bussPackage}.entity#if($!entityPackage).${entityPackage}#end#if($!categ
 import org.springframework.stereotype.Component;
 
 /**
- * Project Name: ${projectName}
- * Functional description：${funcDesc}
- *
- * @author ${author}
- * @version 1.0
- * @date ${datetime}
- * @since JDK ${version}
- */
+* Project Name: #if($!projectName)${projectName}#end
+
+* Functional description：#if($!funcDesc)${funcDesc}#end
+
+*
+* @author #if($!author)${author}#end
+
+* @version 1.0
+* @date ${datetime}
+* @since JDK ${version}
+*/
 @Component
 public interface ${className}Mapper extends BaseMapper<${className}Entity> {
 
