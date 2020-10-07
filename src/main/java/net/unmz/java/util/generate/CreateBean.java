@@ -8,6 +8,7 @@ import org.apache.commons.lang.StringUtils;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -32,9 +33,9 @@ public class CreateBean {
     private String argv;
 
     public void setMysqlInfo(String url, String username, String password) {
-        this.url = url;
-        this.username = username;
-        this.password = password;
+        CreateBean.url = url;
+        CreateBean.username = username;
+        CreateBean.password = password;
     }
 
     public Connection getConnection() throws SQLException {
@@ -49,7 +50,7 @@ public class CreateBean {
         Connection con = getConnection();
         PreparedStatement ps = con.prepareStatement(SQLTables);
         ResultSet rs = ps.executeQuery();
-        List list = new ArrayList();
+        List<String> list = new ArrayList<>();
         while (rs.next()) {
             String tableName = rs.getString(1);
             list.add(tableName);
@@ -68,7 +69,7 @@ public class CreateBean {
 
         Connection con = getConnection();
         PreparedStatement ps = con.prepareStatement(SQLColumns);
-        List columnList = new ArrayList();
+        List<ColumnData> columnList = new ArrayList<>();
         ResultSet rs = ps.executeQuery();
         StringBuffer str = new StringBuffer();
         StringBuffer getset = new StringBuffer();
@@ -138,14 +139,14 @@ public class CreateBean {
         String[] split = name.split("_");
         if (split.length > 1) {
             StringBuffer sb = new StringBuffer();
-            for (int i = 0; i < split.length; i++) {//是否截取表名中的第一段单词 从0开始不截取 从1开始截取
-                String tempName = split[i].substring(0, 1).toUpperCase() + split[i].substring(1, split[i].length());
+            for (int i = DataModel.isIgnoreHead() ? 1 : 0; i < split.length; i++) {//是否截取表名中的第一段单词 从0开始不截取 从1开始截取
+                String tempName = split[i].substring(0, 1).toUpperCase() + split[i].substring(1);
                 sb.append(tempName);
             }
 
             return sb.toString();
         }
-        String tempName = split[0].substring(0, 1).toUpperCase() + split[0].substring(1, split[0].length());
+        String tempName = split[0].substring(0, 1).toUpperCase() + split[0].substring(1);
         return tempName;
     }
 
@@ -243,7 +244,7 @@ public class CreateBean {
         sb.append("\r\t");
         sb.append("private static final long serialVersionUID = 1L;\r\t");
         String temp = className.substring(0, 1).toLowerCase();
-        temp = temp + className.substring(1, className.length());
+        temp = temp + className.substring(1);
         if (type == 1) {
             sb.append("private " + className + " " + temp + "; // model ");
         }
@@ -260,7 +261,7 @@ public class CreateBean {
 
     public void createFile(String path, String fileName, String str) throws IOException {
         FileWriter writer = new FileWriter(new File(path + fileName));
-        writer.write(new String(str.getBytes("utf-8")));
+        writer.write(new String(str.getBytes(StandardCharsets.UTF_8)));
         writer.flush();
         writer.close();
     }
@@ -337,10 +338,10 @@ public class CreateBean {
 
     public String getUpdateSelectiveSql(String tableName, List<ColumnData> columnList) throws SQLException {
         StringBuffer sb = new StringBuffer();
-        ColumnData cd = (ColumnData) columnList.get(0);
+        ColumnData cd = columnList.get(0);
         sb.append("\t<trim  suffixOverrides=\",\" >\n");
         for (int i = 1; i < columnList.size(); i++) {
-            ColumnData data = (ColumnData) columnList.get(i);
+            ColumnData data = columnList.get(i);
             String columnName = data.getColumnName();
             sb.append("\t<if test=\"").append(CommUtil.formatName(columnName)).append(" != null ");
 

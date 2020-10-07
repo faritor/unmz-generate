@@ -12,19 +12,20 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class CodeGenerateFactory {
     private static final Log log = LogFactory.getLog(CodeGenerateFactory.class);
-    private static String url = DataModel.getUrl();
-    private static String username = DataModel.getUsername();
-    private static String passWord = DataModel.getPassword();
-    private static String projectName = DataModel.getProjectName();
-    private static String funcDesc = DataModel.getFuncDesc();
-    private static String basePackage = DataModel.getBasePackage();
-    private static String category = DataModel.getCategory();
+    private static final String url = DataModel.getUrl();
+    private static final String username = DataModel.getUsername();
+    private static final String passWord = DataModel.getPassword();
+    private static final String projectName = DataModel.getProjectName();
+    private static final String funcDesc = DataModel.getFuncDesc();
+    private static final String basePackage = DataModel.getBasePackage();
+    private static final String category = DataModel.getCategory();
 
-    private static String buss_package = DataModel.getBusinessPackage();
-    private static String projectPath = getProjectPath();
+    private static final String buss_package = DataModel.getBusinessPackage();
+    private static final String projectPath = getProjectPath();
 
     public static void codeGenerateList(List<String> tableList, String codeName, String controllerEntityPackage, String keyType, String author) {
         if (tableList != null)
@@ -42,7 +43,7 @@ public class CodeGenerateFactory {
         createBean.setMysqlInfo(url, username, passWord);
 
         String className = createBean.getTablesNameToClassName(tableName);
-        String lowerName = className.substring(0, 1).toLowerCase() + className.substring(1, className.length());
+        String lowerName = className.substring(0, 1).toLowerCase() + className.substring(1);
 
         String srcPath = projectPath + DataModel.getSourceRootPackage() + "\\";
 
@@ -76,6 +77,7 @@ public class CodeGenerateFactory {
         context.put("controllerEntityPackage", StringUtils.isBlank(controllerEntityPackage) ? null : controllerEntityPackage);
         context.put("keyType", keyType);
         context.put("version", System.getProperty("java.version"));
+        context.put("randomLong", System.currentTimeMillis() + new Random(10).nextLong());
         try {
             context.put("feilds", createBean.getBeanFeilds(tableName));
         } catch (Exception e) {

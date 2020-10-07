@@ -2,14 +2,17 @@ package ${bussPackage}.sql#if($!controllerEntityPackage).${entityPackage}#end#if
 
 
 /**
- * Project Name: ${projectName}
- * Functional description：${funcDesc}
- *
- * @author ${author}
- * @version 1.0
- * @date ${datetime}
- * @since JDK ${version}
- */
+* Project Name: #if($!projectName)${projectName}#end
+
+* Functional description：#if($!funcDesc)${funcDesc}#end
+
+*
+* @author #if($!author)${author}#end
+
+* @version 1.0
+* @date ${datetime}
+* @since JDK ${version}
+*/
 public class ${className}Build {
 
 

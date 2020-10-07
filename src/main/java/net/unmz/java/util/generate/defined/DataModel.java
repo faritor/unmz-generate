@@ -14,7 +14,6 @@ public class DataModel {
     private static String basePackage;
     private static String businessPackage;
     private static String category;
-    private static String diverName;
     private static String url;
     private static String username;
     private static String password;
@@ -22,6 +21,7 @@ public class DataModel {
     private static String sourceRootPackage = "out";
     private static String projectName;
     private static String funcDesc;
+    private static boolean ignoreHead = false;
 
     public static String getBusinessPackage() {
         return businessPackage;
@@ -29,14 +29,6 @@ public class DataModel {
 
     public static void setBusinessPackage(String businessPackage) {
         DataModel.businessPackage = businessPackage;
-    }
-
-    public static String getDiverName() {
-        return diverName;
-    }
-
-    public static void setDiverName(String diverName) {
-        DataModel.diverName = diverName;
     }
 
     public static String getUrl() {
@@ -109,5 +101,13 @@ public class DataModel {
 
     public static void setCategory(String category) {
         DataModel.category = category;
+    }
+
+    public static boolean isIgnoreHead() {
+        return ignoreHead;
+    }
+
+    public static void setIgnoreHead(boolean ignoreHead) {
+        DataModel.ignoreHead = ignoreHead;
     }
 }

@@ -9,18 +9,17 @@ public class CommUtil {
             for (int i = 0; i < split.length; i++) {
                 String tempName;
                 if (i == 0) {
-                    tempName = split[0].substring(0, 1).toLowerCase() + split[0].substring(1, split[0].length());
+                    tempName = split[0].substring(0, 1).toLowerCase() + split[0].substring(1);
                     sb.append(tempName);
                     continue;
                 }
-                tempName = split[i].substring(0, 1).toUpperCase() + split[i].substring(1, split[i].length());
+                tempName = split[i].substring(0, 1).toUpperCase() + split[i].substring(1);
                 sb.append(tempName);
             }
 
             return sb.toString();
         }
-        String tempName = split[0].substring(0, 1).toLowerCase() + split[0].substring(1, split[0].length());
-        return tempName;
+        return split[0].substring(0, 1).toLowerCase() + split[0].substring(1);
     }
 }
 
