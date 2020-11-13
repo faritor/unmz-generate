@@ -22,12 +22,14 @@ public class TestDemo {
     static {
         DataModel.setBasePackage("net.unmz.java.base");
         DataModel.setBusinessPackage("net.unmz.java.demo");
+        DataModel.setCategory(" 子分类 ");
         DataModel.setUrl("jdbc:mysql://127.0.0.1:3306/unmz?useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true");
         DataModel.setUsername("root");
         DataModel.setPassword("root");
         DataModel.setDatabaseName("unmz");
         DataModel.setProjectName(" 项目名称 ");
         DataModel.setFuncDesc(" 功能描述 ");
+        DataModel.setIgnoreHead(true);//忽略"t_"部分
     }
 
     @Test
