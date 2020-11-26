@@ -3,6 +3,8 @@ package ${bussPackage}.entity#if($!entityPackage).${entityPackage}#end#if($!cate
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 
 /**
  * Project Name: #if($!projectName)${projectName}#end
@@ -17,6 +19,7 @@ import lombok.Data;
  * @since JDK ${version}
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 @TableName("${tableName}")
 public class ${className}Entity implements Serializable {
 

@@ -1,7 +1,9 @@
 package ${bussPackage}.dto#if($!entityPackage).${entityPackage}#end#if($!category).${category}#end;
 
-#if($!basePackage)import ${basePackage}.entity.BaseEntity;#end
+#if($!basePackage)import ${basePackage}.BaseDTO;#end
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
 * Project Name: #if($!projectName)${projectName}#end
@@ -15,7 +17,10 @@ package ${bussPackage}.dto#if($!entityPackage).${entityPackage}#end#if($!categor
 * @date ${datetime}
 * @since JDK ${version}
 */
-public class ${className}Dto#if($!basePackage) extends BaseEntity#end {
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class ${className}DTO#if($!basePackage) extends BaseDTO#end {
 
+    private static final long serialVersionUID = ${randomLong}L;
 
 }

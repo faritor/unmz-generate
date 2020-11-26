@@ -1,5 +1,6 @@
 package net.unmz.java.util.generate;
 
+import net.unmz.java.util.generate.defined.DataModel;
 import net.unmz.java.util.generate.defined.FtlDef;
 import net.unmz.java.util.generate.factory.CodeGenerateFactory;
 
@@ -17,9 +18,7 @@ import java.util.List;
 public class GenerateCodeUtil {
 
     public static void generateCode(String tableName, String author) {
-        String codeName = "";
-        String entityPackage = "";
-        generateCode(tableName, codeName, entityPackage, author);
+        generateCode(tableName, null, DataModel.getCategory(), author);
     }
 
     public static void generateCode(String tableName, String codeName, String entityPackage, String author) {
@@ -28,9 +27,7 @@ public class GenerateCodeUtil {
     }
 
     public static void generateCodeList(List<String> tableList, String author) {
-        String codeName = "";
-        String entityPackage = "";
-        generateCodeList(tableList, codeName, entityPackage, author);
+        generateCodeList(tableList, null, DataModel.getCategory(), author);
     }
 
     public static void generateCodeList(List<String> tableList, String codeName, String entityPackage, String author) {

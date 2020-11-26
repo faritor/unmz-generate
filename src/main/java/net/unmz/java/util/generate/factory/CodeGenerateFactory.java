@@ -52,13 +52,14 @@ public class CodeGenerateFactory {
         String entityPath = (entityPackage == null || "".equals(entityPackage)) ? "" : entityPackage + "\\";
         String cPath = (controllerEntityPackage == null || "".equals(controllerEntityPackage)) ? "" : controllerEntityPackage + "\\";
 
-        String beanPath = "entity\\" + entityPath + className + "Entity.java";
-        String daoPath = "mapper\\" + entityPath + className + "Mapper.java";
-        String servicePath = "service\\" + entityPath + className + "Service.java";
-        String serviceImplPath = "service\\" + entityPath + "impl\\" + className + "ServiceImpl.java";
+        String beanPath = "entity\\" + cPath + className + "Entity.java";
+        String mapperPath = "mapper\\" + cPath + className + "Mapper.java";
+        String xmlPath = "mapper\\" + cPath + className + "Mapper.xml";
+        String servicePath = "service\\" + cPath + className + "Service.java";
+        String serviceImplPath = "service\\" + cPath + "impl\\" + className + "ServiceImpl.java";
         String controllerPath = "controller\\" + cPath + className + "Controller.java";
         String sqlPath = "sql\\" + cPath + className + "Build.java";
-        String dtoPath = "dto\\" + cPath + className + "Dto.java";
+        String dtoPath = "dto\\" + cPath + className + "DTO.java";
 
         VelocityContext context = new VelocityContext();
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -79,22 +80,15 @@ public class CodeGenerateFactory {
         context.put("version", System.getProperty("java.version"));
         context.put("randomLong", System.currentTimeMillis() + new Random(10).nextLong());
         try {
-            context.put("feilds", createBean.getBeanFeilds(tableName));
+            context.put("feilds", createBean.getBeanFields(tableName));
+            context.put("xmlFields", createBean.getFieldByXml(tableName));
         } catch (Exception e) {
             e.printStackTrace();
-        }
-
-        try {
-            Map sqlMap = createBean.getAutoCreateSql(tableName);
-            context.put("columnDatas", createBean.getColumnDatas(tableName));
-            context.put("SQL", sqlMap);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return;
         }
 
         CommonPageParser.WriterPage(context, "EntityTemplate.ftl", pckPath, beanPath);
-        CommonPageParser.WriterPage(context, "MapperTemplate.ftl", pckPath, daoPath);
+        CommonPageParser.WriterPage(context, "MapperTemplate.ftl", pckPath, mapperPath);
+        CommonPageParser.WriterPage(context, "XmlTemplate.ftl", pckPath, xmlPath);
         CommonPageParser.WriterPage(context, "ServiceTemplate.ftl", pckPath, servicePath);
         CommonPageParser.WriterPage(context, "ServiceImplTemplate.ftl", pckPath, serviceImplPath);
         CommonPageParser.WriterPage(context, "ControllerTemplate.ftl", pckPath, controllerPath);
@@ -104,7 +98,6 @@ public class CodeGenerateFactory {
     }
 
     public static String getProjectPath() {
-        String path = System.getProperty("user.dir").replace("\\", "/") + "/";
-        return path;
+        return System.getProperty("user.dir").replace("\\", "/") + "/";
     }
 }
