@@ -17,25 +17,21 @@ import java.util.List;
 public class GenerateCodeUtil {
 
     public static void generateCode(String tableName, String author) {
-        String codeName = "";
-        String entityPackage = "";
-        generateCode(tableName, codeName, entityPackage, author);
+        generateCode(tableName, null, author);
     }
 
-    public static void generateCode(String tableName, String codeName, String entityPackage, String author) {
+    public static void generateCode(String tableName, String codeName, String author) {
         String keyType = FtlDef.KEY_TYPE_01;//主键生成方式 01:UUID  02:自增
-        CodeGenerateFactory.codeGenerate(tableName, codeName, entityPackage, keyType, author);
+        CodeGenerateFactory.codeGenerate(tableName, codeName, keyType, author);
     }
 
     public static void generateCodeList(List<String> tableList, String author) {
-        String codeName = "";
-        String entityPackage = "";
-        generateCodeList(tableList, codeName, entityPackage, author);
+        generateCodeList(tableList, null, author);
     }
 
-    public static void generateCodeList(List<String> tableList, String codeName, String entityPackage, String author) {
+    public static void generateCodeList(List<String> tableList, String codeName, String author) {
         String keyType = FtlDef.KEY_TYPE_01;//主键生成方式 01:UUID  02:自增
-        CodeGenerateFactory.codeGenerateList(tableList, codeName, entityPackage, keyType, author);
+        CodeGenerateFactory.codeGenerateList(tableList, codeName, keyType, author);
     }
 
 }

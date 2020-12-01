@@ -1,4 +1,4 @@
-package ${bussPackage}.sql#if($!controllerEntityPackage).${entityPackage}#end#if($!category).${category}#end;
+package ${bussPackage}.sql#if($!category).${category}#end;
 
 
 /**

@@ -3,7 +3,6 @@ package net.unmz.java.util.generate.factory;
 import net.unmz.java.util.generate.CommonPageParser;
 import net.unmz.java.util.generate.CreateBean;
 import net.unmz.java.util.generate.defined.DataModel;
-import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.velocity.VelocityContext;
@@ -11,7 +10,6 @@ import org.apache.velocity.VelocityContext;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 public class CodeGenerateFactory {
@@ -27,18 +25,14 @@ public class CodeGenerateFactory {
     private static final String buss_package = DataModel.getBusinessPackage();
     private static final String projectPath = getProjectPath();
 
-    public static void codeGenerateList(List<String> tableList, String codeName, String controllerEntityPackage, String keyType, String author) {
+    public static void codeGenerateList(List<String> tableList, String codeName, String keyType, String author) {
         if (tableList != null)
             for (String tableName : tableList) {
-                codeGenerate(tableName, codeName, controllerEntityPackage, controllerEntityPackage, keyType, author);
+                codeGenerate(tableName, codeName, keyType, author);
             }
     }
 
-    public static void codeGenerate(String tableName, String codeName, String controllerEntityPackage, String keyType, String author) {
-        codeGenerate(tableName, codeName, "", controllerEntityPackage, keyType, author);
-    }
-
-    public static void codeGenerate(String tableName, String codeName, String entityPackage, String controllerEntityPackage, String keyType, String author) {
+    public static void codeGenerate(String tableName, String codeName, String keyType, String author) {
         CreateBean createBean = new CreateBean();
         createBean.setMysqlInfo(url, username, passWord);
 
@@ -49,16 +43,14 @@ public class CodeGenerateFactory {
 
         String pckPath = srcPath + DataModel.getBusinessPackage() + "\\";
 
-        String entityPath = (entityPackage == null || "".equals(entityPackage)) ? "" : entityPackage + "\\";
-        String cPath = (controllerEntityPackage == null || "".equals(controllerEntityPackage)) ? "" : controllerEntityPackage + "\\";
-
-        String beanPath = "entity\\" + entityPath + className + "Entity.java";
-        String daoPath = "mapper\\" + entityPath + className + "Mapper.java";
-        String servicePath = "service\\" + entityPath + className + "Service.java";
-        String serviceImplPath = "service\\" + entityPath + "impl\\" + className + "ServiceImpl.java";
-        String controllerPath = "controller\\" + cPath + className + "Controller.java";
-        String sqlPath = "sql\\" + cPath + className + "Build.java";
-        String dtoPath = "dto\\" + cPath + className + "Dto.java";
+        String beanPath = "entity\\" + category + "\\" + className + "Entity.java";
+        String mapperPath = "mapper\\" + category + "\\" + className + "Mapper.java";
+        String xmlPath = "mapper\\" + category + "\\" + className + "Mapper.xml";
+        String servicePath = "service\\" + category + "\\" + className + "Service.java";
+        String serviceImplPath = "service\\" + category + "\\" + "impl\\" + className + "ServiceImpl.java";
+        String controllerPath = "controller\\" + category + "\\" + className + "Controller.java";
+        String sqlPath = "sql\\" + category + "\\" + className + "Build.java";
+        String dtoPath = "dto\\" + category + "\\" + className + "DTO.java";
 
         VelocityContext context = new VelocityContext();
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -73,28 +65,19 @@ public class CodeGenerateFactory {
         context.put("codeName", codeName);
         context.put("tableName", tableName);
         context.put("bussPackage", buss_package);
-        context.put("entityPackage", StringUtils.isBlank(entityPackage) ? null : entityPackage);
-        context.put("controllerEntityPackage", StringUtils.isBlank(controllerEntityPackage) ? null : controllerEntityPackage);
         context.put("keyType", keyType);
         context.put("version", System.getProperty("java.version"));
         context.put("randomLong", System.currentTimeMillis() + new Random(10).nextLong());
         try {
-            context.put("feilds", createBean.getBeanFeilds(tableName));
+            context.put("feilds", createBean.getBeanFields(tableName));
+            context.put("xmlFields", createBean.getFieldByXml(tableName));
         } catch (Exception e) {
             e.printStackTrace();
-        }
-
-        try {
-            Map sqlMap = createBean.getAutoCreateSql(tableName);
-            context.put("columnDatas", createBean.getColumnDatas(tableName));
-            context.put("SQL", sqlMap);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return;
         }
 
         CommonPageParser.WriterPage(context, "EntityTemplate.ftl", pckPath, beanPath);
-        CommonPageParser.WriterPage(context, "MapperTemplate.ftl", pckPath, daoPath);
+        CommonPageParser.WriterPage(context, "MapperTemplate.ftl", pckPath, mapperPath);
+        CommonPageParser.WriterPage(context, "XmlTemplate.ftl", pckPath, xmlPath);
         CommonPageParser.WriterPage(context, "ServiceTemplate.ftl", pckPath, servicePath);
         CommonPageParser.WriterPage(context, "ServiceImplTemplate.ftl", pckPath, serviceImplPath);
         CommonPageParser.WriterPage(context, "ControllerTemplate.ftl", pckPath, controllerPath);
@@ -104,7 +87,6 @@ public class CodeGenerateFactory {
     }
 
     public static String getProjectPath() {
-        String path = System.getProperty("user.dir").replace("\\", "/") + "/";
-        return path;
+        return System.getProperty("user.dir").replace("\\", "/") + "/";
     }
 }

@@ -1,4 +1,4 @@
-package ${bussPackage}.controller#if($!controllerEntityPackage).${controllerEntityPackage}#end#if($!category).${category}#end;
+package ${bussPackage}.controller#if($!category).${category}#end;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;

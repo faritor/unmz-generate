@@ -103,7 +103,7 @@ public class CreateBean {
         return columnList;
     }
 
-    public String getBeanFeilds(String tableName) throws SQLException {
+    public String getBeanFields(String tableName) throws SQLException {
         List<ColumnData> dataList = getColumnDatas(tableName);
         StringBuffer str = new StringBuffer();
         StringBuffer getset = new StringBuffer();
@@ -127,6 +127,22 @@ public class CreateBean {
         argv = str.append("\n\t\n\t").toString();
         this.method = getset.toString();
         return argv + this.method;
+    }
+
+    public String getFieldByXml(String tableName) throws SQLException {
+        List<ColumnData> dataList = getColumnDatas(tableName);
+        StringBuffer idField = new StringBuffer();
+        StringBuffer othrField = new StringBuffer();
+        for (ColumnData d : dataList) {
+            String columnName = d.getColumnName();
+            String name = CommUtil.formatName(columnName);
+            if ("id".equals(columnName)) {
+                idField.append("<id column=\"").append(columnName).append("\" property=\"").append(name).append("\" />");
+            } else {
+                othrField.append("\n\t\t").append("<result column=\"").append(columnName).append("\" property=\"").append(name).append("\" />");
+            }
+        }
+        return idField.toString() + othrField.toString();
     }
 
     /**
@@ -210,7 +226,8 @@ public class CreateBean {
         else if (dataType.contains("date"))
             dataType = "java.util.Date";
         else if (dataType.contains("time"))
-            dataType = "java.sql.Timestamp";
+            dataType = "java.util.Date";
+//          dataType = "java.sql.Timestamp";
         else if (dataType.contains("clob"))
             dataType = "java.sql.Clob";
         else {
@@ -226,11 +243,11 @@ public class CreateBean {
         StringBuffer sb = new StringBuffer();
         sb.append("package ").append(packageName).append(";\r");
         sb.append("\r");
-        for (int i = 0; i < importName.length; i++) {
-            sb.append("import ").append(importName[i]).append(";\r");
+        for (String s : importName) {
+            sb.append("import ").append(s).append(";\r");
         }
         sb.append("\r");
-        sb.append("/**\r *  model. @author wolf Date:" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + "\r */");
+        sb.append("/**\r *  model. @author wolf Date:").append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())).append("\r */");
         sb.append("\r");
         sb.append("\rpublic class ").append(className);
         if (extendsClassName != null) {
@@ -246,7 +263,7 @@ public class CreateBean {
         String temp = className.substring(0, 1).toLowerCase();
         temp = temp + className.substring(1);
         if (type == 1) {
-            sb.append("private " + className + " " + temp + "; // model ");
+            sb.append("private ").append(className).append(" ").append(temp).append("; // model ");
         }
         sb.append(content);
         sb.append("\r}");
@@ -255,8 +272,7 @@ public class CreateBean {
     }
 
     public String getTablesNameToClassName(String tableName) {
-        String tempTables = formatTableName(tableName);
-        return tempTables;
+        return formatTableName(tableName);
     }
 
     public void createFile(String path, String fileName, String str) throws IOException {
@@ -313,8 +329,7 @@ public class CreateBean {
     }
 
     public String[] getColumnList(String columns) throws SQLException {
-        String[] columnList = columns.split("[|]");
-        return columnList;
+        return columns.split("[|]");
     }
 
     public String getUpdateSql(String tableName, String[] columnsList) throws SQLException {
@@ -360,7 +375,7 @@ public class CreateBean {
     public String getColumnSplit(List<ColumnData> columnList) throws SQLException {
         StringBuffer commonColumns = new StringBuffer();
         for (ColumnData data : columnList) {
-            commonColumns.append(data.getColumnName() + "|");
+            commonColumns.append(data.getColumnName()).append("|");
         }
         return commonColumns.delete(commonColumns.length() - 1, commonColumns.length()).toString();
     }
@@ -368,7 +383,7 @@ public class CreateBean {
     public String getFormatColumnSplit(List<ColumnData> columnList) throws SQLException {
         StringBuffer commonColumns = new StringBuffer();
         for (ColumnData data : columnList) {
-            commonColumns.append(data.getFormatColumnName() + "|");
+            commonColumns.append(data.getFormatColumnName()).append("|");
         }
         return commonColumns.delete(commonColumns.length() - 1, commonColumns.length()).toString();
     }
