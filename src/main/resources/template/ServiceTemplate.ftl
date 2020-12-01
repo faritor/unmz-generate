@@ -15,6 +15,6 @@ import ${bussPackage}.entity#if($!entityPackage).${entityPackage}#end#if($!categ
 * @date ${datetime}
 * @since JDK ${version}
 */
-public interface ${className}Service extends IService<${className}Entity>{
+public interface ${className}Service extends IService<${className}Entity> {
 
 }
