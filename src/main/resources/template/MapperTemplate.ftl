@@ -1,4 +1,4 @@
-package ${bussPackage}.mapping#if($!entityPackage).${entityPackage}#end#if($!category).${category}#end;
+package ${bussPackage}.mapping#if($!category).${category}#end;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import ${bussPackage}.entity#if($!entityPackage).${entityPackage}#end#if($!category).${category}#end.${className}Entity;

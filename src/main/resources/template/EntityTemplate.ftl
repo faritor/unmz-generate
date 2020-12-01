@@ -1,4 +1,4 @@
-package ${bussPackage}.entity#if($!entityPackage).${entityPackage}#end#if($!category).${category}#end;
+package ${bussPackage}.entity#if($!category).${category}#end;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;

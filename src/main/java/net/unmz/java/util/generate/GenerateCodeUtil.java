@@ -1,6 +1,5 @@
 package net.unmz.java.util.generate;
 
-import net.unmz.java.util.generate.defined.DataModel;
 import net.unmz.java.util.generate.defined.FtlDef;
 import net.unmz.java.util.generate.factory.CodeGenerateFactory;
 
@@ -18,21 +17,21 @@ import java.util.List;
 public class GenerateCodeUtil {
 
     public static void generateCode(String tableName, String author) {
-        generateCode(tableName, null, DataModel.getCategory(), author);
+        generateCode(tableName, null, author);
     }
 
-    public static void generateCode(String tableName, String codeName, String entityPackage, String author) {
+    public static void generateCode(String tableName, String codeName, String author) {
         String keyType = FtlDef.KEY_TYPE_01;//主键生成方式 01:UUID  02:自增
-        CodeGenerateFactory.codeGenerate(tableName, codeName, entityPackage, keyType, author);
+        CodeGenerateFactory.codeGenerate(tableName, codeName, keyType, author);
     }
 
     public static void generateCodeList(List<String> tableList, String author) {
-        generateCodeList(tableList, null, DataModel.getCategory(), author);
+        generateCodeList(tableList, null, author);
     }
 
-    public static void generateCodeList(List<String> tableList, String codeName, String entityPackage, String author) {
+    public static void generateCodeList(List<String> tableList, String codeName, String author) {
         String keyType = FtlDef.KEY_TYPE_01;//主键生成方式 01:UUID  02:自增
-        CodeGenerateFactory.codeGenerateList(tableList, codeName, entityPackage, keyType, author);
+        CodeGenerateFactory.codeGenerateList(tableList, codeName, keyType, author);
     }
 
 }

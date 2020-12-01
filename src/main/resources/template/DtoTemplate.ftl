@@ -1,4 +1,4 @@
-package ${bussPackage}.dto#if($!entityPackage).${entityPackage}#end#if($!category).${category}#end;
+package ${bussPackage}.dto#if($!category).${category}#end;
 
 #if($!basePackage)import ${basePackage}.BaseDTO;#end
 

@@ -4,7 +4,7 @@
     <!--开启二级缓存-->
     <cache type="org.mybatis.caches.ehcache.LoggingEhcache"></cache>
 
-    <resultMap id="BaseResultMap" type="${bussPackage}.entity#if($!entityPackage).${entityPackage}#end#if($!category).${category}#end.${className}Entity">
+    <resultMap id="BaseResultMap" type="${bussPackage}.entity#if($!category).${category}#end.${className}Entity">
         ${xmlFields}
     </resultMap>
 

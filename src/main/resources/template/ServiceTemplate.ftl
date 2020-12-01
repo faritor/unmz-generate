@@ -1,4 +1,4 @@
-package ${bussPackage}.service#if($!entityPackage).${entityPackage}#end#if($!category).${category}#end;
+package ${bussPackage}.service#if($!category).${category}#end;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import ${bussPackage}.entity#if($!entityPackage).${entityPackage}#end#if($!category).${category}#end.${className}Entity;

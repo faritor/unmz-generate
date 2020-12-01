@@ -1,4 +1,4 @@
-package ${bussPackage}.service#if($!entityPackage).${entityPackage}#end#if($!category).${category}#end.impl;
+package ${bussPackage}.service#if($!category).${category}#end.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
