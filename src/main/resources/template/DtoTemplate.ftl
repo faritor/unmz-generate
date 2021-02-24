@@ -6,17 +6,17 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
-* Project Name: #if($!projectName)${projectName}#end
+ * Project Name: #if($!projectName)${projectName}#end
 
-* Functional description：#if($!funcDesc)${funcDesc}#end
+ * Functional description：#if($!funcDesc)${funcDesc}#end
 
-*
-* @author #if($!author)${author}#end
+ *
+ * @author #if($!author)${author}#end
 
-* @version 1.0
-* @date ${datetime}
-* @since JDK ${version}
-*/
+ * @version 1.0
+ * @date ${datetime}
+ * @since JDK ${version}
+ */
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class ${className}DTO#if($!basePackage) extends BaseDTO#end {

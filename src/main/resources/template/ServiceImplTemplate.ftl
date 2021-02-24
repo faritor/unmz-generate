@@ -9,17 +9,17 @@ import ${bussPackage}.mapper#if($!entityPackage).${entityPackage}#end#if($!categ
 
 
 /**
-* Project Name: #if($!projectName)${projectName}#end
+ * Project Name: #if($!projectName)${projectName}#end
 
-* Functional description：#if($!funcDesc)${funcDesc}#end
+ * Functional description：#if($!funcDesc)${funcDesc}#end
 
-*
-* @author #if($!author)${author}#end
+ *
+ * @author #if($!author)${author}#end
 
-* @version 1.0
-* @date ${datetime}
-* @since JDK ${version}
-*/
+ * @version 1.0
+ * @date ${datetime}
+ * @since JDK ${version}
+ */
 @Slf4j
 @Service
 public class ${className}ServiceImpl extends ServiceImpl<${className}Mapper, ${className}Entity> implements ${className}Service {
