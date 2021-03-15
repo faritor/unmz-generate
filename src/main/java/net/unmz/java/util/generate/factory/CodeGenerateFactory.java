@@ -45,7 +45,7 @@ public class CodeGenerateFactory {
 
         String beanPath = "entity\\" + category + "\\" + className + "Entity.java";
         String mapperPath = "mapper\\" + category + "\\" + className + "Mapper.java";
-        String xmlPath = "mapper\\" + category + "\\" + className + "Mapper.xml";
+        String xmlPath = "xml\\" + category + "\\" + className + "Mapper.xml";
         String servicePath = "service\\" + category + "\\" + className + "Service.java";
         String serviceImplPath = "service\\" + category + "\\" + "impl\\" + className + "ServiceImpl.java";
         String controllerPath = "controller\\" + category + "\\" + className + "Controller.java";
