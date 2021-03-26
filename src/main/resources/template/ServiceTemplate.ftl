@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import ${bussPackage}.entity#if($!entityPackage).${entityPackage}#end#if($!category).${category}#end.${className}Entity;
 
 /**
- * Project Name: #if($!projectName)${projectName}#end
 
  * Functional description：#if($!funcDesc)${funcDesc}#end
 

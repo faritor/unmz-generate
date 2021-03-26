@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * Project Name: #if($!projectName)${projectName}#end
 
  * Functional description：#if($!funcDesc)${funcDesc}#end
 

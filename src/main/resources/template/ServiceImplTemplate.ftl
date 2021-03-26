@@ -9,7 +9,6 @@ import ${bussPackage}.mapper#if($!entityPackage).${entityPackage}#end#if($!categ
 
 
 /**
- * Project Name: #if($!projectName)${projectName}#end
 
  * Functional description：#if($!funcDesc)${funcDesc}#end
 

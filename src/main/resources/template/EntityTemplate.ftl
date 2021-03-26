@@ -1,13 +1,12 @@
 package ${bussPackage}.entity#if($!category).${category}#end;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
+import com.comm.entity.BaseEntity;
 
 /**
- * Project Name: #if($!projectName)${projectName}#end
 
  * Functional description：#if($!funcDesc)${funcDesc}#end
 
@@ -21,7 +20,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("${tableName}")
-public class ${className}Entity implements Serializable {
+public class ${className}Entity extends BaseEntity  {
 
     private static final long serialVersionUID = ${randomLong}L;
 ${feilds}
