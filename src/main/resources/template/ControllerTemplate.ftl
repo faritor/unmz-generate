@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.validation.annotation.Validated;
 
 /**
-
  * Functional description：#if($!funcDesc)${funcDesc}#end
 
  *

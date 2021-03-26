@@ -2,7 +2,6 @@ package ${bussPackage}.sql#if($!category).${category}#end;
 
 
 /**
-
  * Functional description：#if($!funcDesc)${funcDesc}#end
 
  *

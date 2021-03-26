@@ -5,7 +5,6 @@ import ${bussPackage}.entity#if($!entityPackage).${entityPackage}#end#if($!categ
 import org.springframework.stereotype.Component;
 
 /**
-
  * Functional description：#if($!funcDesc)${funcDesc}#end
 
  *
