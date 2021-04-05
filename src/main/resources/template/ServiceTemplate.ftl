@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import ${bussPackage}.entity#if($!entityPackage).${entityPackage}#end#if($!category).${category}#end.${className}Entity;
 
 /**
- * Functional description：#if($!funcDesc)${funcDesc}#end
+ * description：#if($!funcDesc)${funcDesc}#end
 
  *
  * @author #if($!author)${author}#end
