@@ -9,7 +9,7 @@ import ${bussPackage}.mapper#if($!entityPackage).${entityPackage}#end#if($!categ
 
 
 /**
- * Functional description：#if($!funcDesc)${funcDesc}#end
+ * description：#if($!funcDesc)${funcDesc}#end
 
  *
  * @author #if($!author)${author}#end

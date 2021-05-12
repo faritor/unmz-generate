@@ -4,7 +4,7 @@ package net.unmz.java.util.generate.defined;
  * Project Name: 批量生成项目
  * 功能描述：动态数据模型
  *
- * @author faritor@unmz.net
+ * @author Faritor
  * @version 1.0
  * @date 2017-11-14 13:54
  * @since JDK 1.8

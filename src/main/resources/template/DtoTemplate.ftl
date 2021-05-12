@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * Functional description：#if($!funcDesc)${funcDesc}#end
+ * description：#if($!funcDesc)${funcDesc}#end
 
  *
  * @author #if($!author)${author}#end

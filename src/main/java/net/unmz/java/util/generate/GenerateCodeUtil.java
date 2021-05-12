@@ -9,7 +9,7 @@ import java.util.List;
  * Project Name: 代码生成工具类
  * 功能描述：输入表名和作者,生成对应的表所对应的所有基础结构
  *
- * @author faritor@unmz.net
+ * @author Faritor
  * @version 1.2
  * @date 2017-11-08 19:36
  * @since JDK 1.8
