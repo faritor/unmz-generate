@@ -11,7 +11,7 @@ import java.util.List;
  * Project Name:
  * 功能描述：
  *
- * @author faritor@unmz.net
+ * @author Faritor
  * @version 1.0
  * @date 2018/2/5 17:37
  * @since JDK 1.8
@@ -35,7 +35,7 @@ public class TestDemo {
     @Test
     public void testGenerate() {
         String tableName = "category"; //表名
-        GenerateCodeUtil.generateCode(tableName, "faritor@unmz.net");
+        GenerateCodeUtil.generateCode(tableName, "Faritor");
     }
 
     @Test
@@ -43,6 +43,6 @@ public class TestDemo {
         List<String> tableList = new ArrayList<>();
         tableList.add("statistics_city");
         tableList.add("statistics_city");
-        GenerateCodeUtil.generateCodeList(tableList,"faritor@unmz.net");
+        GenerateCodeUtil.generateCodeList(tableList,"Faritor");
     }
 }
