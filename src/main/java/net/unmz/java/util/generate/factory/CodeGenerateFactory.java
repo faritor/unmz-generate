@@ -43,8 +43,8 @@ public class CodeGenerateFactory {
         String srcPath = projectPath + DataModel.getSourceRootPackage() + "\\";
 
         String pckPath = srcPath + DataModel.getBusinessPackage() + "\\";
-        String categoryPath = StringUtils.isNotBlank(category) ? category + "\\" : "";
 
+        String categoryPath = StringUtils.isNoneBlank(category) ? category + "\\" : "";
         String beanPath = "entity\\" + categoryPath + className + "Entity.java";
         String mapperPath = "mapper\\" + categoryPath + className + "Mapper.java";
         String xmlPath = "xml\\" + categoryPath + className + "Mapper.xml";
