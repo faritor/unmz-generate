@@ -3,6 +3,7 @@ package net.unmz.java.util.generate.factory;
 import net.unmz.java.util.generate.CommonPageParser;
 import net.unmz.java.util.generate.CreateBean;
 import net.unmz.java.util.generate.defined.DataModel;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.velocity.VelocityContext;
@@ -43,14 +44,15 @@ public class CodeGenerateFactory {
 
         String pckPath = srcPath + DataModel.getBusinessPackage() + "\\";
 
-        String beanPath = "entity\\" + category + "\\" + className + "Entity.java";
-        String mapperPath = "mapper\\" + category + "\\" + className + "Mapper.java";
-        String xmlPath = "mapper\\" + category + "\\" + className + "Mapper.xml";
-        String servicePath = "service\\" + category + "\\" + className + "Service.java";
-        String serviceImplPath = "service\\" + category + "\\" + "impl\\" + className + "ServiceImpl.java";
-        String controllerPath = "controller\\" + category + "\\" + className + "Controller.java";
-        String sqlPath = "sql\\" + category + "\\" + className + "Build.java";
-        String dtoPath = "dto\\" + category + "\\" + className + "DTO.java";
+        String categoryPath = StringUtils.isNoneBlank(category) ? category + "\\" : "";
+        String beanPath = "entity\\" + categoryPath + className + "Entity.java";
+        String mapperPath = "mapper\\" + categoryPath + className + "Mapper.java";
+        String xmlPath = "xml\\" + categoryPath + className + "Mapper.xml";
+        String servicePath = "service\\" + categoryPath + className + "Service.java";
+        String serviceImplPath = "service\\" + categoryPath + "impl\\" + className + "ServiceImpl.java";
+        String controllerPath = "controller\\" + categoryPath + className + "Controller.java";
+        String sqlPath = "sql\\" + categoryPath + className + "Build.java";
+        String dtoPath = "dto\\" + categoryPath + className + "DTO.java";
 
         VelocityContext context = new VelocityContext();
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

@@ -4,17 +4,15 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import ${bussPackage}.entity#if($!entityPackage).${entityPackage}#end#if($!category).${category}#end.${className}Entity;
 
 /**
-* Project Name: #if($!projectName)${projectName}#end
+ * Functional description：#if($!funcDesc)${funcDesc}#end
 
-* Functional description：#if($!funcDesc)${funcDesc}#end
+ *
+ * @author #if($!author)${author}#end
 
-*
-* @author #if($!author)${author}#end
-
-* @version 1.0
-* @date ${datetime}
-* @since JDK ${version}
-*/
+ * @version 1.0
+ * @date ${datetime}
+ * @since JDK ${version}
+ */
 public interface ${className}Service extends IService<${className}Entity> {
 
 }
